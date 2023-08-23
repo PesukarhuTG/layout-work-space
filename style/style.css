@@ -8,6 +8,7 @@
 html {
   box-sizing: border-box;
   position: relative;
+  overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
@@ -23,6 +24,8 @@ html {
 }
 
 body {
+  position: relative;
+  overflow-x: hidden;
   min-width: 320px;
   min-height: 100vh;
   font-family: Inter, sans-serif;
@@ -72,5 +75,5 @@ fieldset {
 }
 
 .accent-text {
-  color: #2A18FF;
+  color: #2a18ff;
 }

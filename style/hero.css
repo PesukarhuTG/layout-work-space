@@ -4,22 +4,25 @@
 
 .hero__container {
   position: relative;
-  padding: 57px 0;
+  padding-top: 57px;
+  padding-bottom: 57px;
 }
 
 .hero__container::after {
   content: '';
   position: absolute;
   right: -9px;
-  top: 60px;
+  top: 0;
+  bottom: 0;
   width: 421px;
-  height: 330px;
   background: url('../assets/img/laptop.png') no-repeat center/contain;
 }
 
 .hero__title {
   max-width: 780px;
+  position: relative;
   font-size: 90px;
   letter-spacing: 1.8px;
   text-transform: uppercase;
+  z-index: 2;
 }
