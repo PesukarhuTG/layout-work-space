@@ -4,6 +4,50 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Вакансии Work Space</title>
+    <style id="preload">
+      body {
+        position: relative;
+      }
+
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-color: rgba(255, 255, 255, 0.8);
+        z-index: 998;
+      }
+
+      body::after {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background-image: url('./assets/img/loader.svg');
+        background-position: center;
+        background-size: 20%;
+        background-repeat: no-repeat;
+        z-index: 999;
+        animation: rotate 1.2s infinite linear;
+      }
+
+      @keyframes rotate {
+        0% {
+          transform: rotate(0);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+
+    <script>
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          const preload = document.querySelector('#preload');
+          preload.remove();
+        }, 500);
+      });
+    </script>
+
     <link rel="stylesheet" href="index.css" />
     <script src="scripts/choices.min.js" defer></script>
     <script src="scripts/script.js" defer></script>
