@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index.css" />
     <title>Вакансии Work Space</title>
   </head>
   <body>
@@ -21,13 +21,17 @@
     <main class="main">
       <section class="hero">
         <div class="container hero__container">
-          <h1 class="hero__title" aria-label="Найди работу своей мечты на сайте Work Space">
+          <h1
+            class="hero__title"
+            aria-label="Найди работу своей мечты на сайте Work Space"
+          >
             Найди работу <span class="accent-text">своей мечты</span>
           </h1>
         </div>
       </section>
       <div id="vacancies" class="vacancies">
         <div class="container vacancies__container">
+          <button class="vacancies__filter-btn">Фильтр</button>
           <section class="vacancies__filter filter">
             <h2 class="filter__title">Фильтр</h2>
             <form class="filter__form">
@@ -63,91 +67,113 @@
                 <fieldset class="filter__fieldset">
                   <legend class="filter__legend">Формат</legend>
                   <label class="filter__label checkbox">
-                    <input
-                      class="checkbox__input"
-                      type="checkbox"
-                      name="format"
-                      value="Офис"
-                    />Офис
-                    <input
-                      class="checkbox__input"
-                      type="checkbox"
-                      name="format"
-                      value="Удаленный"
-                    />Удаленный
-                    <input
-                      class="checkbox__input"
-                      type="checkbox"
-                      name="format"
-                      value="Гибкий"
-                    />Гибкий
+                    <div>
+                      <input
+                        class="checkbox__input"
+                        type="checkbox"
+                        name="format"
+                        value="Офис"
+                      />Офис
+                    </div>
+                    <div>
+                      <input
+                        class="checkbox__input"
+                        type="checkbox"
+                        name="format"
+                        value="Удаленный"
+                      />Удаленный
+                    </div>
+                    <div>
+                      <input
+                        class="checkbox__input"
+                        type="checkbox"
+                        name="format"
+                        value="Гибкий"
+                      />Гибкий
+                    </div>
                   </label>
                 </fieldset>
 
                 <fieldset class="filter__fieldset">
                   <legend class="filter__legend">Опыт работы</legend>
                   <label class="filter__label checkbox">
-                    <input
-                      class="checkbox__input"
-                      type="checkbox"
-                      name="experience"
-                      value="Не важно"
-                    />Не важно
-                    <input
-                      class="checkbox__input"
-                      type="checkbox"
-                      name="experience"
-                      value="Без опыта"
-                    />Без опыта
-                    <input
-                      class="checkbox__input"
-                      type="checkbox"
-                      name="experience"
-                      value="От 1 года до 3-х лет"
-                    />От 1 года до 3-х лет
-                    <input
-                      class="checkbox__input"
-                      type="checkbox"
-                      name="experience"
-                      value="От 3-х лет"
-                    />От 3-х лет
+                    <div>
+                      <input
+                        class="checkbox__input"
+                        type="checkbox"
+                        name="experience"
+                        value="Не важно"
+                      />Не важно
+                    </div>
+                    <div>
+                      <input
+                        class="checkbox__input"
+                        type="checkbox"
+                        name="experience"
+                        value="Без опыта"
+                      />Без опыта
+                    </div>
+                    <div>
+                      <input
+                        class="checkbox__input"
+                        type="checkbox"
+                        name="experience"
+                        value="От 1 года до 3-х лет"
+                      />От 1 года до 3-х лет
+                    </div>
+                    <div>
+                      <input
+                        class="checkbox__input"
+                        type="checkbox"
+                        name="experience"
+                        value="От 3-х лет"
+                      />От 3-х лет
+                    </div>
                   </label>
                 </fieldset>
 
                 <fieldset class="filter__fieldset">
                   <legend class="filter__legend">Занятость</legend>
                   <label class="filter__label checkbox">
-                    <input
-                      class="checkbox__input"
-                      type="checkbox"
-                      name="type"
-                      value="Полная"
-                    />Полная
-                    <input
-                      class="checkbox__input"
-                      type="checkbox"
-                      name="type"
-                      value="Частичная"
-                    />Частичная
-                    <input
-                      class="checkbox__input"
-                      type="checkbox"
-                      name="type"
-                      value="Стажировкат"
-                    />Стажировка
-                    <input
-                      class="checkbox__input"
-                      type="checkbox"
-                      name="type"
-                      value="Проектная работа"
-                    />Проектная работа
+                    <div>
+                      <input
+                        class="checkbox__input"
+                        type="checkbox"
+                        name="type"
+                        value="Полная"
+                      />Полная
+                    </div>
+                    <div>
+                      <input
+                        class="checkbox__input"
+                        type="checkbox"
+                        name="type"
+                        value="Частичная"
+                      />Частичная
+                    </div>
+                    <div>
+                      <input
+                        class="checkbox__input"
+                        type="checkbox"
+                        name="type"
+                        value="Стажировкат"
+                      />Стажировка
+                    </div>
+                    <div>
+                      <input
+                        class="checkbox__input"
+                        type="checkbox"
+                        name="type"
+                        value="Проектная работа"
+                      />Проектная работа
+                    </div>
                   </label>
                 </fieldset>
               </div>
 
               <div class="filter__buttons">
                 <button class="filter__button" type="submit">Применить</button>
-                <button class="filter__button" type="reset">Очистить</button>
+                <button class="filter__reset" type="reset">Очистить</button>
               </div>
             </form>
           </section>
@@ -156,7 +182,11 @@
             <ul class="cards__list">
               <li class="cards__item">
                 <article class="vacancy" tabindex="0">
-                  <img class="vacancy__img" src="assets/img/logo-partner.svg" alt="Вакансия YADRO">
+                  <img
+                    class="vacancy__img"
+                    src="assets/img/logo-partner.svg"
+                    alt="Вакансия YADRO"
+                  />
                   <p class="vacancy__company">YADRO</p>
                   <h3 class="vacancy__title">Инженер</h3>
                   <ul class="vacancy__fields">
@@ -169,7 +199,11 @@
               </li>
               <li class="cards__item">
                 <article class="vacancy" tabindex="0">
-                  <img class="vacancy__img" src="assets/img/logo-v.svg" alt="Вакансия ВкусВилл">
+                  <img
+                    class="vacancy__img"
+                    src="assets/img/logo-v.svg"
+                    alt="Вакансия ВкусВилл"
+                  />
                   <p class="vacancy__company">ВкусВилл</p>
                   <h3 class="vacancy__title">Повар-кондитер</h3>
                   <ul class="vacancy__fields">
@@ -182,7 +216,11 @@
               </li>
               <li class="cards__item">
                 <article class="vacancy" tabindex="0">
-                  <img class="vacancy__img" src="assets/img/logo-partner.svg" alt="Вакансия YADRO">
+                  <img
+                    class="vacancy__img"
+                    src="assets/img/logo-partner.svg"
+                    alt="Вакансия YADRO"
+                  />
                   <p class="vacancy__company">YADRO</p>
                   <h3 class="vacancy__title">Инженер</h3>
                   <ul class="vacancy__fields">
@@ -201,14 +239,22 @@
 
     <footer class="footer">
       <div class="container footer__container">
-        <img class="footer__logo" src="assets/img/logo-footer.svg" alt="Логотип Work Space" >
+        <img
+          class="footer__logo"
+          src="assets/img/logo-footer.svg"
+          alt="Логотип Work Space"
+        />
         <p class="footer__copyright">&copy; Work Space, 2023</p>
         <ul class="footer__contacts">
-          <li class="footer__contact">Designer: 
+          <li class="footer__contact">
+            Designer:
             <a class="footer__link" href="#">Anastasia Ilina</a>
           </li>
-          <li class="footer__contact">Developer: 
-            <a class="footer__link" href="https://github.com/PesukarhuTG">Tatiana Fox</a>
+          <li class="footer__contact">
+            Developer:
+            <a class="footer__link" href="https://github.com/PesukarhuTG"
+              >Tatiana Fox</a
+            >
           </li>
         </ul>
       </div>

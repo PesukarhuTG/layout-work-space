@@ -2,4 +2,8 @@
 @import 'style/style.css';
 @import 'style/header.css';
 @import 'style/hero.css';
+@import 'style/vacancies.css';
+@import 'style/filters.css';
+@import 'style/cards.css';
+@import 'style/vacancy.css';
 @import 'style/footer.css';
