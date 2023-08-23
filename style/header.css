@@ -1,0 +1,22 @@
+.header {
+  padding: 40px 0;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__link {
+  padding: 12px 32px;
+  font-size: 20px;
+  border-radius: 8px;
+  background-color: #a6adff;
+  transition: 0.3s;
+}
+
+.header__link:hover {
+  background-color: #2A18FF;
+  color: #fff;
+}
