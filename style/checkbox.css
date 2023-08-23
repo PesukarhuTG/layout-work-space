@@ -1,5 +1,60 @@
-
 .checkbox {
+  position: relative;
+  display: block;
+  line-height: 20px;
+  padding-left: 28px;
 }
+
+.checkbox__input-wrapper:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+/* скрываем дефолтный чекбокс*/
 .checkbox__input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+  left: 0;
+  width: 20px;
+  height: 20px;
+}
+
+/* создаем свой чекбокс*/
+.checkbox__input:before {
+  content: '';
+  position: absolute;
+  display: block;
+  inset: 0;
+  background-color: #fff;
+  border-radius: 4px;
+}
+
+/* создаем свою галочку*/
+.checkbox__input::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  display: block;
+  background: url('../assets/img/check.svg') no-repeat center/cover;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.checkbox__input:checked:after {
+  opacity: 1;
+}
+
+.checkbox__input:focus-visible {
+  outline: none;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.15);
+}
+
+.checkbox__input:hover:not(:disabled) {
+  box-shadow: 0px 2px 10px rgba(166, 173, 255, 0.55);
+  cursor: pointer;
+}
+
+.checkbox__input:disabled {
+  background-color: #ccc;
 }
