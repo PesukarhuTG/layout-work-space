@@ -70,3 +70,7 @@ fieldset {
   margin: 0 auto;
   padding: 0 var(--padding);
 }
+
+.accent-text {
+  color: #2A18FF;
+}
