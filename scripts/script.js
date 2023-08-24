@@ -2,6 +2,9 @@ const API_URL = 'https://workspace-methed.vercel.app/';
 const LOCATION_URL = 'api/locations';
 const VACANCY_URL = 'api/vacancy';
 
+const vacanciesFilterBtn = document.querySelector('.vacancies__filter-btn');
+const vacanciesFilterBlock = document.querySelector('.vacancies__filter');
+
 const cardsList = document.querySelector('.cards__list');
 let lastUrl = '';
 const pagination = {};
@@ -251,6 +254,14 @@ const init = () => {
       lastUrl = urlWithParam;
     });
   });
+
+  // filter btn on mobile devices
+  vacanciesFilterBtn.addEventListener('click', (e) => {
+    const target = e.target;
+
+    target.classList.toggle('vacancies__filter-btn_active');
+    vacanciesFilterBlock.classList.toggle('vacancies__filter_active');
+  })
 };
 
 init();
