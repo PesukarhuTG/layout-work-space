@@ -142,6 +142,7 @@ const openModal = (id) => {
 };
 
 const init = () => {
+  const filterForm = document.querySelector('.filter__form');
   const cardsList = document.querySelector('.cards__list');
 
   // launch library for select
@@ -169,6 +170,7 @@ const init = () => {
   const url = new URL(`${API_URL}${VACANCY_URL}`);
   getData(url, (data) => renderVacancy(data, cardsList), renderError);
 
+  // modal
   cardsList.addEventListener('click', (e) => {
     const target = e.target;
     const vacancyCard = target.closest('.vacancy');
@@ -177,6 +179,22 @@ const init = () => {
       const vacancyId = vacancyCard.dataset.id;
       openModal(vacancyId);
     }
+  });
+
+  // filter
+  filterForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    //get data form
+    const formData = new FormData(filterForm);
+
+    const urlWithParam = new URL(`${API_URL}${VACANCY_URL}`);
+
+    formData.forEach((value, key) => {
+      urlWithParam.searchParams.append(key, value);
+    });
+
+    getData(urlWithParam, (data) => renderVacancy(data, cardsList), renderError);
   });
 };
 
