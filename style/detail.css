@@ -67,6 +67,28 @@
   line-height: 1.4;
 }
 
+.detail__tg {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.detail__input {
+  width: 180px;
+  font-style: 14px;
+  height: 32px;
+  padding: 0 16px;
+  border-radius: 16px;
+  border: 1px solid #ccc;
+}
+
+.detail__btn {
+  border-radius: 16px;
+  background-color: #a6adff;
+  padding: 4px 16px;
+  color: #fff;
+}
+
 @media (max-width: 940px) {
   .detail {
     max-width: 680px;

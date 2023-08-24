@@ -1,6 +1,7 @@
 const API_URL = 'https://workspace-methed.vercel.app/';
 const LOCATION_URL = 'api/locations';
 const VACANCY_URL = 'api/vacancy';
+const BOT_TOKEN = '6458107575:AAHFxz3A9VYlLFGF8a2ezf_85QAqd9kTxxQ';
 
 const vacanciesFilterBtn = document.querySelector('.vacancies__filter-btn');
 const vacanciesFilterBlock = document.querySelector('.vacancies__filter');
@@ -125,12 +126,43 @@ const createDetailVacancy = ({
           <li class="detail__field">${location}</li>
         </ul>
       </div>
-      <p class="detail__contact">Отправляйте резюме на 
-        <a class="accent-text" href="mailto:${email}">${email}</a>
-      </p>
+
+      ${
+        isNaN(parseInt(id.slice(-1)))
+          ? `<p class="detail__contact">Отправляйте резюме на 
+            <a class="accent-text" href="mailto:${email}">${email}</a>
+          </p>
+        `
+          : `<form class="detail__tg">
+            <input class="detail__input" type="text" name="message" placeholder="Напишите свой email для отклика" />
+            <input name="vacancyId" type="hidden" value="${id}" />
+            <button class="detail__btn">Отправить</button>
+          </form>
+        `
+      }
     </article>
     
 `;
+
+const sendTelegram = (modal) => {
+  modal.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const form = e.target.closest('.detail__tg');
+
+    const userId = '326943721';
+
+    const text = `Отклик на вакансию ${form.vacancyId.value}, email: ${form.message.value}`;
+    const urlBot = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage?chat_id=${userId}&text=${text}`;
+
+    fetch(urlBot)
+      .then((res) => alert('Успешно отправлено'))
+      .catch((err) => {
+        alert('Ошибка');
+        console.log(err);
+      });
+  });
+};
 
 const renderModal = (data) => {
   const modal = document.createElement('div');
@@ -173,6 +205,8 @@ const renderModal = (data) => {
       modal.remove();
     }
   });
+
+  sendTelegram(modal);
 };
 
 const openModal = (id) => {
@@ -219,7 +253,7 @@ const init = () => {
   // launch library for select
   const citySelect = document.querySelector('#city');
   const cityChoices = new Choices(citySelect, {
-    searchEnabled: true,
+    searchEnabled: false,
     itemSelectText: '',
   });
 
