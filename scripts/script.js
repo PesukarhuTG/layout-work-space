@@ -128,12 +128,12 @@ const renderModal = (data) => {
   modal.append(modalMain);
   document.body.append(modal);
 
-  modalClose.addEventListener('click', () => {
-    modal.remove();
-  });
+  modal.addEventListener('click', (e) => {
+    const target = e.target;
 
-  modal.addEventListener('click', () => {
-    modal.remove();
+    if (target === modal || target.closest('.modal__close')) {
+      modal.remove();
+    }
   });
 };
 
