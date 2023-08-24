@@ -5,40 +5,30 @@
   padding-left: 28px;
 }
 
-.checkbox__input-wrapper:not(:last-child) {
-  margin-bottom: 8px;
-}
-
 /* скрываем дефолтный чекбокс*/
 .checkbox__input {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  position: absolute;
-  left: 0;
   width: 20px;
   height: 20px;
-}
-
-/* создаем свой чекбокс*/
-.checkbox__input:before {
-  content: '';
   position: absolute;
-  display: block;
-  inset: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
   background-color: #fff;
   border-radius: 4px;
 }
 
 /* создаем свою галочку*/
-.checkbox__input::after {
-  content: '';
+.checkbox__input::after{
+  content: "";
   position: absolute;
   inset: 0;
   display: block;
-  background: url('../assets/img/check.svg') no-repeat center/cover;
+  background: url('../assets/img/check.svg') no-repeat center;
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: opacity 0.2s ease-in-out;
 }
 
 .checkbox__input:checked:after {
