@@ -192,6 +192,27 @@ const observer = new IntersectionObserver(
   }
 );
 
+const scrollTopBtn = () => {
+  const btnTop = document.querySelector('.btn-up');
+
+  btnTop.addEventListener('click', () => {
+    document.body.scrollIntoView({
+      behavior: 'smooth',
+      block: 'start',
+    });
+  });
+
+  window.addEventListener('scroll', () => {
+    const clientHeight = document.documentElement.clientHeight;
+
+    if (window.scrollY > clientHeight / 4) {
+      btnTop.classList.add('active-btn');
+    } else {
+      btnTop.classList.remove('active-btn');
+    }
+  });
+};
+
 const init = () => {
   const filterForm = document.querySelector('.filter__form');
 
@@ -261,8 +282,9 @@ const init = () => {
 
     target.classList.toggle('vacancies__filter-btn_active');
     vacanciesFilterBlock.classList.toggle('vacancies__filter_active');
-  })
+  });
+
+  scrollTopBtn();
 };
 
 init();
-

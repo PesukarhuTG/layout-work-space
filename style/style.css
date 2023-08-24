@@ -78,6 +78,35 @@ fieldset {
   color: #2a18ff;
 }
 
+.btn-up {
+  display: none;
+  z-index: 2;
+}
+
+.active-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 0 15px 2px #fff;
+  background: url('../assets/img/btn-up.svg') no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-color: #a6adff;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.active-btn:hover {
+  background-color: #7e84cc;
+}
+
 @media (max-width: 1140px) {
   .container {
     --width: 880px;
