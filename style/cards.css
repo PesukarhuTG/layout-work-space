@@ -3,3 +3,16 @@
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
 }
+
+@media (max-width: 1140px) {
+  .cards__list {
+    grid-template-columns: repeat(auto-fit, minmax(248px, 1fr));
+  }
+}
+
+@media (max-width: 940px) {
+  .cards__list {
+    grid-template-columns: repeat(auto-fit, minmax(188px, 1fr));
+    gap: 10px;
+  }
+}
