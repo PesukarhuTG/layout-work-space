@@ -255,6 +255,7 @@ const init = () => {
   const cityChoices = new Choices(citySelect, {
     searchEnabled: false,
     itemSelectText: '',
+    position: 'bottom',
   });
 
   // get city list
