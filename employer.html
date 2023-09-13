@@ -56,12 +56,17 @@
   <body>
     <header class="header">
       <div class="container header__container">
-        <img
-          class="header__logo"
-          src="assets/img/logo-header.svg"
-          alt="Логотип Work Space"
-        />
-        <a href="#vacancies" class="header__link">Посмотреть вакансии</a>
+        <a href="index.html#vacancies">
+          <img
+            class="header__logo"
+            src="assets/img/logo-header.svg"
+            alt="Логотип Work Space"
+          />
+        </a>
+
+        <a href="index.html#vacancies" class="header__link"
+          >Посмотреть вакансии</a
+        >
       </div>
     </header>
 
@@ -89,85 +94,185 @@
 
             <fieldset class="employer__fieldset-input">
               <div class="employer__wrap-input">
-                <label class="employer__label" for="company">Название компании</label>
-                <input class="employer__input" type="text" id="company" name="company" placeholder="Например: MICROSOFT" />
+                <label class="employer__label" for="company"
+                  >Название компании</label
+                >
+                <input
+                  class="employer__input"
+                  type="text"
+                  id="company"
+                  name="company"
+                  placeholder="Например: MICROSOFT"
+                />
               </div>
 
               <div class="employer__wrap-input">
-                <label class="employer__label" for="title">Название вакансии</label>
-                <input class="employer__input" type="text" id="title" name="title" placeholder="Например: Frontend-разработчик" />
+                <label class="employer__label" for="title"
+                  >Название вакансии</label
+                >
+                <input
+                  class="employer__input"
+                  type="text"
+                  id="title"
+                  name="title"
+                  placeholder="Например: Frontend-разработчик"
+                />
               </div>
 
               <div class="employer__wrap-input">
-                <label class="employer__label" for="salary">Заработная плата, руб/мес</label>
-                <input class="employer__input" type="number" id="salary" name="salary" placeholder="80 000" />
+                <label class="employer__label" for="salary"
+                  >Заработная плата, руб/мес</label
+                >
+                <input
+                  class="employer__input"
+                  type="number"
+                  id="salary"
+                  name="salary"
+                  placeholder="80 000"
+                />
               </div>
 
               <div class="employer__wrap-input">
                 <label class="employer__label" for="location">Город</label>
-                <input class="employer__input" type="text" id="location" name="location" placeholder="Например: Москва" />
+                <input
+                  class="employer__input"
+                  type="text"
+                  id="location"
+                  name="location"
+                  placeholder="Например: Москва"
+                />
               </div>
 
               <div class="employer__wrap-input">
                 <label class="employer__label" for="email">E-mail</label>
-                <input class="employer__input" type="email" id="email" name="email" placeholder="Добавьте e-mail для связи" />
+                <input
+                  class="employer__input"
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="Добавьте e-mail для связи"
+                />
               </div>
             </fieldset>
 
             <fieldset class="employer__fieldset-textarea">
-              <label class="employer__label" for="description">Описание вакансии</label>
-              <textarea class="employer__textarea" name="description" id="description" placeholder="Добавьте всю необходимую для соискателя информацию"></textarea>
+              <label class="employer__label" for="description"
+                >Описание вакансии</label
+              >
+              <textarea
+                class="employer__textarea"
+                name="description"
+                id="description"
+                placeholder="Добавьте всю необходимую для соискателя информацию"
+              ></textarea>
             </fieldset>
 
             <div class="employer__radio-buttons">
               <fieldset class="employer__fieldset-radio">
                 <legend class="employer__legend">Формат</legend>
                 <label class="employer__label-radio radio">
-                  <input class="radio__input" type="radio" name="format" value="Офис">Офис
+                  <input
+                    class="radio__input"
+                    type="radio"
+                    name="format"
+                    value="Офис"
+                  />Офис
                 </label>
                 <label class="employer__label-radio radio">
-                  <input class="radio__input" type="radio" name="format" value="Удаленный">Удаленный
+                  <input
+                    class="radio__input"
+                    type="radio"
+                    name="format"
+                    value="Удаленный"
+                  />Удаленный
                 </label>
                 <label class="employer__label-radio radio">
-                  <input class="radio__input" type="radio" name="format" value="Гибкий">Гибкий
+                  <input
+                    class="radio__input"
+                    type="radio"
+                    name="format"
+                    value="Гибкий"
+                  />Гибкий
                 </label>
               </fieldset>
 
               <fieldset class="employer__fieldset-radio">
                 <legend class="employer__legend">Опыт работы</legend>
                 <label class="employer__label-radio radio">
-                  <input class="radio__input" type="radio" name="experience" value="Не важно">Не важно
+                  <input
+                    class="radio__input"
+                    type="radio"
+                    name="experience"
+                    value="Не важно"
+                  />Не важно
                 </label>
                 <label class="employer__label-radio radio">
-                  <input class="radio__input" type="radio" name="experience" value="Без опыта">Без опыта
+                  <input
+                    class="radio__input"
+                    type="radio"
+                    name="experience"
+                    value="Без опыта"
+                  />Без опыта
                 </label>
                 <label class="employer__label-radio radio">
-                  <input class="radio__input" type="radio" name="experience" value="От 1 года до 3-х лет">От 1 года до 3-х лет
+                  <input
+                    class="radio__input"
+                    type="radio"
+                    name="experience"
+                    value="От 1 года до 3-х лет"
+                  />От 1 года до 3-х лет
                 </label>
                 <label class="employer__label-radio radio">
-                  <input class="radio__input" type="radio" name="experience" value="От 3-х лет">От 3-х лет
+                  <input
+                    class="radio__input"
+                    type="radio"
+                    name="experience"
+                    value="От 3-х лет"
+                  />От 3-х лет
                 </label>
               </fieldset>
 
               <fieldset class="employer__fieldset-radio">
                 <legend class="employer__legend">Занятость</legend>
                 <label class="employer__label-radio radio">
-                  <input class="radio__input" type="radio" name="type" value="Полная">Полная
+                  <input
+                    class="radio__input"
+                    type="radio"
+                    name="type"
+                    value="Полная"
+                  />Полная
                 </label>
                 <label class="employer__label-radio radio">
-                  <input class="radio__input" type="radio" name="type" value="Частичная">Частичная
+                  <input
+                    class="radio__input"
+                    type="radio"
+                    name="type"
+                    value="Частичная"
+                  />Частичная
                 </label>
                 <label class="employer__label-radio radio">
-                  <input class="radio__input" type="radio" name="type" value="Стажировка">Стажировка
+                  <input
+                    class="radio__input"
+                    type="radio"
+                    name="type"
+                    value="Стажировка"
+                  />Стажировка
                 </label>
                 <label class="employer__label-radio radio">
-                  <input class="radio__input" type="radio" name="type" value="Проектная работа">Проектная работа
+                  <input
+                    class="radio__input"
+                    type="radio"
+                    name="type"
+                    value="Проектная работа"
+                  />Проектная работа
                 </label>
               </fieldset>
             </div>
 
             <div class="employer__wrap-submit">
-              <button class="employer__submit" type="submit">Добавить вакансию</button>
+              <button class="employer__submit" type="submit">
+                Добавить вакансию
+              </button>
               <div class="employer__error">
                 <p>Ошибка. Заполните все поля</p>
               </div>
