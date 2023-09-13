@@ -62,6 +62,7 @@
       'logo'
       'copyright'
       'contacts';
+    gap: 16px;
   }
 
   .footer__contacts {

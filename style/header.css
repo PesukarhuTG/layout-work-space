@@ -19,12 +19,18 @@
   font-size: 20px;
   border-radius: 8px;
   background-color: #a6adff;
+  border: 2px solid transparent;
   transition: 0.3s;
 }
 
 .header__link_o {
   background-color: transparent;
   border: 1px solid #A6ADFF;
+  transition: 0.3s all;
+}
+
+.header__link:focus-visible {
+  border-color: #4f58be;
 }
 
 .header__link:hover {
@@ -33,7 +39,7 @@
 }
 
 .header__link_o:hover {
-  border: 1px solid #2a18ff;
+  border-color: #2a18ff;
 }
 
 @media (max-width: 1140px) {
@@ -56,9 +62,5 @@
 @media (max-width: 640px) {
   .header {
     padding: 24px 0 20px;
-  }
-
-  .header__link {
-    display: none;
   }
 }
