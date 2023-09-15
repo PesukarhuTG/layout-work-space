@@ -6,6 +6,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
 }
 
 .header__links {
@@ -16,6 +18,7 @@
 
 .header__link {
   padding: 12px 32px;
+  text-align: center;
   font-size: 20px;
   border-radius: 8px;
   background-color: #a6adff;
@@ -25,7 +28,7 @@
 
 .header__link_o {
   background-color: transparent;
-  border: 1px solid #A6ADFF;
+  border: 1px solid #a6adff;
   transition: 0.3s all;
 }
 
@@ -62,5 +65,19 @@
 @media (max-width: 640px) {
   .header {
     padding: 24px 0 20px;
+  }
+
+  .header__container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header__links {
+    max-width: 290px;
+  }
+
+  .header__link {
+    width: 100%;
   }
 }
