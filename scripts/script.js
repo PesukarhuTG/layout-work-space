@@ -348,11 +348,12 @@ const init = () => {
       const validate = new JustValidate(form, {
         errorsContainer: document.querySelector('.employer__error'),
         errorFieldStyle: {
-          border: '1px solid #f00',
+          borderColor: '#f00',
         },
         errorLabelStyle: {
           color: '#f00',
         },
+        errorFieldCssClass: 'invalid',
       });
 
       validate

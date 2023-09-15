@@ -18,10 +18,11 @@
   bottom: 0;
   background-color: #fff;
   border-radius: 50%;
+  border: 1px solid transparent;
 }
 
 /* создаем свой radio-button*/
-.radio__input::after { 
+.radio__input::after {
   content: '';
   position: absolute;
   top: 50%;
