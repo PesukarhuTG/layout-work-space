@@ -1,4 +1,4 @@
-const API_URL = 'https://workspace-methed.vercel.app/';
+const API_URL = 'https://basalt-buttoned-speedwell.glitch.me/';
 const LOCATION_URL = 'api/locations';
 const VACANCY_URL = 'api/vacancy';
 const BOT_TOKEN = '6458107575:AAHFxz3A9VYlLFGF8a2ezf_85QAqd9kTxxQ';
@@ -70,8 +70,9 @@ const createCards = (data) =>
   });
 
 const renderVacancies = (data) => {
-  cardsList.textContent = '';
+  cardsList.textContent = 'Идет загрузка данных...';
   const cards = createCards(data);
+  cardsList.textContent = '';
   cardsList.append(...cards);
 
   if (data.pagination) {
@@ -418,6 +419,8 @@ const init = () => {
         .addRequiredGroup('#format', 'Выберите формат')
         .addRequiredGroup('#experience', 'Выберите опыт')
         .addRequiredGroup('#type', 'Выберите занятость');
+
+      return validate;
     };
 
     const fileController = () => {
@@ -444,11 +447,35 @@ const init = () => {
 
     const formController = () => {
       const form = document.querySelector('.employer__form');
+      const employerError = document.querySelector('.employer__error');
+      const validate = validationForm(form);
 
-      validationForm(form);
-
-      form.addEventListener('submit', (e) => {
+      form.addEventListener('submit', async (e) => {
         e.preventDefault();
+
+        if (!validate.isValid) {
+          return;
+        }
+
+        try {
+          //create obj for body
+          const formData = new FormData(form);
+
+          employerError.textContent = 'Отправка данных, подождите...';
+
+          const response = await fetch(`${API_URL}${VACANCY_URL}`, {
+            method: 'POST',
+            body: formData,
+          });
+
+          if (response.ok) {
+            employerError.textContent = '';
+            window.location.href = 'index.html';
+          }
+        } catch (error) {
+          employerError.textContent = 'Произошла ошибка, попробуйте позже';
+          console.error(error.message);
+        }
       });
     };
 
@@ -462,5 +489,3 @@ const init = () => {
 };
 
 init();
-
-
