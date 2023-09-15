@@ -27,8 +27,9 @@ const inputNumberController = () => {
     let value = '';
 
     input.addEventListener('input', (e) => {
+      const symbol = e.data;
       // если введем букву = true
-      if (isNaN(parseInt(e.data))) {
+      if (isNaN(parseInt(symbol)) && symbol !== null) {
         e.target.value = value;
       }
 
