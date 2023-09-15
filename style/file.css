@@ -11,12 +11,13 @@
   background-color: #fff;
 }
 
+.file_active .file__wrap-preview {
+  background-color: transparent;
+}
+
 .file__wrap-preview_active {
   min-width: auto;
 }
-
-/* .file__preview {
-} */
 
 .file__wrap-btn {
   position: relative;

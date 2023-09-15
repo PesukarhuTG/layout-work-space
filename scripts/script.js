@@ -21,6 +21,22 @@ const getData = async (url, cbSuccess, cbError) => {
   }
 };
 
+const inputNumberController = () => {
+  const inputNumberElements = document.querySelectorAll('input[type="number"]');
+  inputNumberElements.forEach((input) => {
+    let value = '';
+
+    input.addEventListener('input', (e) => {
+      // если введем букву = true
+      if (isNaN(parseInt(e.data))) {
+        e.target.value = value;
+      }
+
+      value = e.target.value;
+    });
+  });
+};
+
 const createCard = ({
   id,
   company,
@@ -248,78 +264,202 @@ const scrollTopBtn = () => {
 };
 
 const init = () => {
-  const filterForm = document.querySelector('.filter__form');
+  // THIS CODE FOR INDEX.HTML
+  try {
+    const filterForm = document.querySelector('.filter__form');
 
-  // launch library for select
-  const citySelect = document.querySelector('#city');
-  const cityChoices = new Choices(citySelect, {
-    searchEnabled: false,
-    itemSelectText: '',
-    position: 'bottom',
-  });
-
-  // get city list
-  getData(
-    `${API_URL}${LOCATION_URL}`,
-    (locationData) => {
-      const locations = locationData.map((location) => ({
-        value: location,
-      }));
-      cityChoices.setChoices(locations, 'value', 'label', true);
-    },
-    (err) => {
-      console.log(err);
-    }
-  );
-
-  // get cards
-  const urlWithParams = new URL(`${API_URL}${VACANCY_URL}`);
-
-  urlWithParams.searchParams.set('limit', window.innerWidth < 768 ? 6 : 12);
-  urlWithParams.searchParams.set('page', 1);
-
-  getData(urlWithParams, renderVacancies, renderError).then(() => {
-    lastUrl = urlWithParams;
-  });
-
-  // modal
-  cardsList.addEventListener('click', (e) => {
-    const target = e.target;
-    const vacancyCard = target.closest('.vacancy');
-
-    if (vacancyCard) {
-      const vacancyId = vacancyCard.dataset.id;
-      openModal(vacancyId);
-    }
-  });
-
-  // filter
-  filterForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    //get data form
-    const formData = new FormData(filterForm);
-
-    const urlWithParam = new URL(`${API_URL}${VACANCY_URL}`);
-
-    formData.forEach((value, key) => {
-      urlWithParam.searchParams.append(key, value);
+    // launch library for select
+    const citySelect = document.querySelector('#city');
+    const cityChoices = new Choices(citySelect, {
+      searchEnabled: false,
+      itemSelectText: '',
+      position: 'bottom',
     });
 
-    getData(urlWithParam, renderVacancies, renderError).then(() => {
-      lastUrl = urlWithParam;
+    // get city list
+    getData(
+      `${API_URL}${LOCATION_URL}`,
+      (locationData) => {
+        const locations = locationData.map((location) => ({
+          value: location,
+        }));
+        cityChoices.setChoices(locations, 'value', 'label', true);
+      },
+      (err) => {
+        console.log(err);
+      }
+    );
+
+    // get cards
+    const urlWithParams = new URL(`${API_URL}${VACANCY_URL}`);
+
+    urlWithParams.searchParams.set('limit', window.innerWidth < 768 ? 6 : 12);
+    urlWithParams.searchParams.set('page', 1);
+
+    getData(urlWithParams, renderVacancies, renderError).then(() => {
+      lastUrl = urlWithParams;
     });
-  });
 
-  // filter btn on mobile devices
-  vacanciesFilterBtn.addEventListener('click', (e) => {
-    const target = e.target;
+    // modal
+    cardsList.addEventListener('click', (e) => {
+      const target = e.target;
+      const vacancyCard = target.closest('.vacancy');
 
-    target.classList.toggle('vacancies__filter-btn_active');
-    vacanciesFilterBlock.classList.toggle('vacancies__filter_active');
-  });
+      if (vacancyCard) {
+        const vacancyId = vacancyCard.dataset.id;
+        openModal(vacancyId);
+      }
+    });
 
-  scrollTopBtn();
+    // filter
+    filterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      //get data form
+      const formData = new FormData(filterForm);
+
+      const urlWithParam = new URL(`${API_URL}${VACANCY_URL}`);
+
+      formData.forEach((value, key) => {
+        urlWithParam.searchParams.append(key, value);
+      });
+
+      getData(urlWithParam, renderVacancies, renderError).then(() => {
+        lastUrl = urlWithParam;
+      });
+    });
+
+    // filter btn on mobile devices
+    vacanciesFilterBtn.addEventListener('click', (e) => {
+      const target = e.target;
+
+      target.classList.toggle('vacancies__filter-btn_active');
+      vacanciesFilterBlock.classList.toggle('vacancies__filter_active');
+    });
+
+    scrollTopBtn();
+  } catch (error) {
+    console.warn(error.message);
+  }
+
+  // THIS CODE FOR EMPLOYER.HTML
+  try {
+    const validationForm = (form) => {
+      const validate = new JustValidate(form, {
+        errorsContainer: document.querySelector('.employer__error'),
+        errorFieldStyle: {
+          border: '1px solid #f00',
+        },
+        errorLabelStyle: {
+          color: '#f00',
+        },
+      });
+
+      validate
+        .addField('#logo', [
+          {
+            rule: 'minFilesCount',
+            value: 1,
+            errorMessage: 'Добавьте логотип',
+          },
+          {
+            rule: 'files',
+            value: {
+              files: {
+                extensions: ['jpeg', 'png', 'jpg'],
+                maxSize: 102400,
+                types: ['image/jpeg', 'image/png'],
+              },
+            },
+            errorMessage: 'Размер файла должен быть не больше 100Кб',
+          },
+        ])
+        .addField('#company', [
+          {
+            rule: 'required',
+            errorMessage: 'Поле компании не заполнено',
+          },
+        ])
+        .addField('#title', [
+          {
+            rule: 'required',
+            errorMessage: 'Поле вакансии не заполнено',
+          },
+        ])
+        .addField('#salary', [
+          {
+            rule: 'required',
+            errorMessage: 'Поле зарплаты не заполнено',
+          },
+        ])
+        .addField('#location', [
+          {
+            rule: 'required',
+            errorMessage: 'Поле города не заполнено',
+          },
+        ])
+        .addField('#email', [
+          {
+            rule: 'required',
+            errorMessage: 'Поле email не заполнено',
+          },
+          {
+            rule: 'email',
+            errorMessage: 'Email некорректен',
+          },
+        ])
+        .addField('#description', [
+          {
+            rule: 'required',
+            errorMessage: 'Описание вакансии не заполнено',
+          },
+        ])
+        .addRequiredGroup('#format', 'Выберите формат')
+        .addRequiredGroup('#experience', 'Выберите опыт')
+        .addRequiredGroup('#type', 'Выберите занятость');
+    };
+
+    const fileController = () => {
+      const file = document.querySelector('.file');
+      const preview = file.querySelector('.file__preview');
+      const input = file.querySelector('.file__input');
+
+      input.addEventListener('change', (e) => {
+        if (e.target.files !== null) {
+          const src = URL.createObjectURL(e.target.files[0]);
+
+          file.classList.add('file_active');
+          preview.src = src;
+          preview.alt = `логотип ${e.target.files[0].name.split('.')[0]}`;
+          preview.style.display = 'block';
+        } else {
+          file.classList.remove('file_active');
+          preview.src = '';
+          preview.alt = '';
+          preview.style.display = 'none';
+        }
+      });
+    };
+
+    const formController = () => {
+      const form = document.querySelector('.employer__form');
+
+      validationForm(form);
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+      });
+    };
+
+    formController();
+    fileController();
+  } catch (error) {
+    console.warn(error.message);
+  }
+
+  inputNumberController();
 };
 
 init();
+
+

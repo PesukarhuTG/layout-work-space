@@ -50,7 +50,7 @@
     </script>
 
     <link rel="stylesheet" href="index.css" />
-    <script src="scripts/choices.min.js" defer></script>
+    <script src="scripts/just-validate.min.js" defer></script>
     <script src="scripts/script.js" defer></script>
   </head>
   <body>
@@ -79,7 +79,7 @@
           <form class="employer__form">
             <div class="employer__file file">
               <div class="file__wrap-preview">
-                <img class="file__preview" alt="uploaded file" />
+                <img class="file__preview" alt="" />
               </div>
               <div class="file__wrap-btn">
                 <label class="file__label" for="logo">+ Загрузить лого</label>
@@ -89,7 +89,6 @@
                   type="file"
                   name="logo"
                   accept="image/png, image/jpeg"
-                  required
                 />
               </div>
             </div>
@@ -151,7 +150,7 @@
                 <label class="employer__label" for="email">E-mail</label>
                 <input
                   class="employer__input"
-                  type="email"
+                  type="text"
                   id="email"
                   name="email"
                   placeholder="Добавьте e-mail для связи"
@@ -172,7 +171,7 @@
             </fieldset>
 
             <div class="employer__radio-buttons">
-              <fieldset class="employer__fieldset-radio">
+              <fieldset id="format" class="employer__fieldset-radio">
                 <legend class="employer__legend">Формат</legend>
                 <label class="employer__label-radio radio">
                   <input
@@ -200,7 +199,7 @@
                 </label>
               </fieldset>
 
-              <fieldset class="employer__fieldset-radio">
+              <fieldset id="experience" class="employer__fieldset-radio">
                 <legend class="employer__legend">Опыт работы</legend>
                 <label class="employer__label-radio radio">
                   <input
@@ -236,7 +235,7 @@
                 </label>
               </fieldset>
 
-              <fieldset class="employer__fieldset-radio">
+              <fieldset id="type" class="employer__fieldset-radio">
                 <legend class="employer__legend">Занятость</legend>
                 <label class="employer__label-radio radio">
                   <input
@@ -278,7 +277,6 @@
                 Добавить вакансию
               </button>
               <div class="employer__error">
-                <p>Ошибка. Заполните все поля</p>
               </div>
             </div>
           </form>
