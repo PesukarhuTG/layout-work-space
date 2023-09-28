@@ -4,6 +4,14 @@
   gap: 20px;
 }
 
+.cards__message {
+  padding: 10px 0;
+  max-width: 370px;
+  margin: 0 auto;
+  font-size: 16px;
+  text-align: center;
+}
+
 @media (max-width: 1140px) {
   .cards__list {
     grid-template-columns: repeat(auto-fit, minmax(248px, 1fr));

@@ -66,13 +66,13 @@
 .filter__button {
   padding: 8px 24px;
   border-radius: 4px;
-  background: #a6adff;
+  background-color: #d6001c;
+  color: #fff;
   transition: 0.3s;
 }
 
 .filter__button:hover {
-  background-color: #2a18ff;
-  color: #fff;
+  background-color: #b3031a;
 }
 
 @media (max-width: 940px) {

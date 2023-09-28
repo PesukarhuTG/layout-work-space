@@ -21,7 +21,7 @@
 .hero__title {
   max-width: 780px;
   position: relative;
-  font-size: 90px;
+  font-size: 80px;
   letter-spacing: 1.8px;
   text-transform: uppercase;
   z-index: 2;

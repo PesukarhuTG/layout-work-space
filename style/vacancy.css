@@ -7,9 +7,10 @@
 }
 
 .vacancy__img {
-  max-height: 44px;
-  margin-bottom: 12px;
   display: block;
+  height: 44px;
+  min-width: 44px;
+  margin-bottom: 12px;
 }
 
 .vacancy__company {

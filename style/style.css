@@ -40,7 +40,6 @@ body {
   height: 100vh;
 }
 
-
 img,
 svg {
   max-width: 100%;
@@ -81,7 +80,7 @@ fieldset {
 }
 
 .accent-text {
-  color: #2a18ff;
+  color: #d6001c;
 }
 
 .btn-up {
@@ -104,13 +103,13 @@ fieldset {
   background: url('../assets/img/btn-up.svg') no-repeat;
   background-position: center;
   background-size: contain;
-  background-color: #a6adff;
+  background-color: #d6001c;
   transition: 0.3s;
   cursor: pointer;
 }
 
 .active-btn:hover {
-  background-color: #7e84cc;
+  background-color: #b3031a;
 }
 
 @media (max-width: 1140px) {
